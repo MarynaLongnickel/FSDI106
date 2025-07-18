@@ -1,0 +1,23 @@
+main {
+    display: flex;
+    height: 100vh;
+}
+.list {
+    background-color: aqua;
+    flex: 4;
+    overflow-y: auto;
+}
+#form {
+    background-color: antiquewhite;
+    flex: 4;   
+}
+.task {
+    background-color: white;
+    border-left: 8px solid;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+.task h5 {
+    margin-bottom: 5px;
+}
