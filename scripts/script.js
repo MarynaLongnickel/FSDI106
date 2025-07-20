@@ -1,6 +1,18 @@
+class Task {
+    constructor(title, description, color, date, status, budget) {
+        this.title = title;
+        this.desc = description;
+        this.color = color;
+        this.date = date;
+        this.status = status;
+        this.budget = budget;
+        this.name = "Adrian59";
+    }
+}
+
 function isValid(task) {
     return task.title.length > 0 &&
-           task.description.length > 0 &&
+           task.desc.length > 0 &&
            task.color &&
            task.date &&
            task.status &&
@@ -11,7 +23,7 @@ function displayTask(task) {
     const html = `
         <div class="task" style="border-color: ${task.color}">
             <h5>${task.title}</h5>
-            <p>${task.description}</p>
+            <p>${task.desc}</p>
             <p><strong>Status:</strong> ${task.status}</p>
             <p><strong>Start Date:</strong> ${new Date(task.date).toLocaleString()}</p>
             <p><strong>Budget:</strong> $${task.budget.toFixed(2)}</p>
@@ -21,14 +33,14 @@ function displayTask(task) {
 }
 
 function saveTask() {
-    const task = {
-        title: $("#txtTitle").val().trim(),
-        description: $("#txtDescription").val().trim(),
-        color: $("#selColor").val(),
-        date: $("#selDate").val(),
-        status: $("#selStatus").val(),
-        budget: parseFloat($("#numBudget").val())
-    };
+    const title = $("#txtTitle").val().trim();
+    const desc = $("#txtDescription").val().trim();
+    const color = $("#selColor").val();
+    const date = $("#selDate").val();
+    const status = $("#selStatus").val();
+    const budget = parseFloat($("#numBudget").val());
+
+    const task = new Task(title, desc, color, date, status, budget);
 
     if (!isValid(task)) {
         alert("Please fill in all fields correctly.");
